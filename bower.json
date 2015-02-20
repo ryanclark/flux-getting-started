@@ -1,0 +1,26 @@
+{
+  "name": "flux-getting-started",
+  "version": "0.0.0",
+  "homepage": "https://github.com/rynclark/flux-getting-started",
+  "authors": [
+    "Ryan Clark"
+  ],
+  "description": "Getting started with Flux",
+  "keywords": [
+    "flux",
+    "getting",
+    "started"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.12.2"
+  }
+}
