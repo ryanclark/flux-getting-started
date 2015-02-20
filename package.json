@@ -1,0 +1,39 @@
+{
+  "name": "flux",
+  "version": "0.0.0",
+  "description": "Getting started with Flux",
+  "main": "./",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rynclark/flux-getting-started.git"
+  },
+  "keywords": [
+    "flux"
+  ],
+  "author": "Ryan Clark",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rynclark/flux-getting-started/issues"
+  },
+  "homepage": "https://github.com/rynclark/flux-getting-started",
+  "devDependencies": {
+    "browserify": "^5.10.1",
+    "connect-livereload": "~0.3.2",
+    "express": "~3.4.8",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "0.0.7",
+    "gulp-livereload": "^0.3.2",
+    "gulp-notify": "^1.2.5",
+    "gulp-plumber": "~0.5.6",
+    "gulp-preprocess": "^1.1.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-ruby-sass": "^0.7.1",
+    "multipipe": "^0.1.1",
+    "reactify": "^0.17.1",
+    "tiny-lr": "0.0.5",
+    "vinyl-transform": "0.0.1"
+  }
+}
