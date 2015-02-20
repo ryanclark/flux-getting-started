@@ -1,5 +1,5 @@
 {
-  "name": "flux",
+  "name": "all-about-flux",
   "version": "0.0.0",
   "description": "Getting started with Flux",
   "main": "./",
@@ -35,5 +35,8 @@
     "reactify": "^0.17.1",
     "tiny-lr": "0.0.5",
     "vinyl-transform": "0.0.1"
+  },
+  "dependencies": {
+    "flux": "^2.0.1"
   }
 }
