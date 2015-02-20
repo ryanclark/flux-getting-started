@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
+body {
+  background: #fff;
+
+  position: relative;
+  color: #444;
+  font: 300 13px/1.6 Roboto, 'Helvetica Neue', Helvetica, Arial;
+  margin: 0 auto;
+  min-height: 100%;
+  overflow-y: scroll;
+}
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+input,
+textarea,
+button {
+  outline: 0;
+}
+
+.no-select {
+
+}
+
+.text-select {
+  user-select: text;
+}
+
+audio,
+canvas,
+img,
+video {
+  vertical-align: middle;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.ir {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  *text-indent: -9999px;
+}
+
+.ir:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 150%;
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
