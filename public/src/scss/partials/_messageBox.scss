@@ -6,11 +6,12 @@
 		left: 300px;
 		right: 0;
 		bottom: 67px;
-		padding: 30px;
+		padding: 20px 30px;
 		overflow-y: scroll;
 	}
 
 	&__item {
+		margin: 10px 0;
 		&__contents {
 			background: rgba(0, 0, 0, 0.08);
 			float: left;

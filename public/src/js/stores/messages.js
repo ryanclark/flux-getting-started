@@ -1,3 +1,5 @@
+var UserStore = require('../stores/user');
+
 var Dispatcher = require('../dispatchers/app');
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
@@ -92,6 +94,17 @@ messagesStore.dispatchToken = Dispatcher.register(function (payload) {
 	var actions = {
 		updateOpenChatID: function (payload) {
 			openChatID = payload.action.userID;
+
+			messagesStore.emit('change');
+		},
+		sendMessage: function (payload) {
+			var userID = payload.action.userID;
+
+			messages[userID].messages.push({
+				contents: payload.action.message,
+				timestamp: payload.action.timestamp,
+				from: UserStore.user.id
+			});
 
 			messagesStore.emit('change');
 		}
