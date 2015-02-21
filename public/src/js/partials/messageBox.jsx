@@ -1,35 +1,13 @@
 var ReplyBox = require('../components/replyBox');
 
+var MessagesStore = require('../stores/messages');
 var UserStore = require('../stores/user');
 
 var Utils = require('../utils');
 
 var MessageBox = React.createClass({
 	getInitialState: function () {
-		return {
-			user: {
-				profilePicture: 'https://avatars0.githubusercontent.com/u/7922109?v=3&s=460',
-				id: 2,
-				name: 'Ryan Clark',
-				status: 'online'
-			},
-			lastAccess: {
-				recipient: 1424469794050,
-				currentUser: 1424469794080
-			},
-			messages: [
-				{
-					contents: 'Hey!',
-					from: 2,
-					timestamp: 1424469793023
-				},
-				{
-					contents: 'Hey, what\'s up?',
-					from: 1,
-					timestamp: 1424469794000
-				}
-			]
-		};
+		return MessagesStore.getChatByUserID(MessagesStore.getOpenChatUserID());
 	},
 	render: function () {
 		var messagesLength = this.state.messages.length;

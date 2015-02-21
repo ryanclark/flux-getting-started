@@ -68,7 +68,7 @@ var messages = {
 	}
 };
 
-var openChatID = Object.keys(messages)[0];
+var openChatID = parseInt(Object.keys(messages)[0], 10);
 
 var messageStore = assign({}, EventEmitter.prototype, {
 	addChangeListener: function (callback) {
@@ -77,13 +77,13 @@ var messageStore = assign({}, EventEmitter.prototype, {
 	removeChangeListener: function (callback) {
 		this.off('change', callback);
 	},
-	getOpenChatID: function () {
+	getOpenChatUserID: function () {
 		return openChatID;
 	},
-	getByUserID: function (id) {
+	getChatByUserID: function (id) {
 		return messages[id];
 	},
-	getAll: function () {
+	getAllChats: function () {
 		return messages;
 	}
 });
@@ -91,3 +91,5 @@ var messageStore = assign({}, EventEmitter.prototype, {
 messageStore.dispatchToken = Dispatcher.register(function (payload) {
 
 });
+
+module.exports = messageStore;
