@@ -43,7 +43,7 @@ var MessageBox = React.createClass({
 			});
 
 			return (
-				<li className={ messageClasses }>
+				<li key={ message.timestamp + '-' + message.from } className={ messageClasses }>
 					<div className="message-box__item__contents">
 						{ message.contents }
 					</div>
@@ -57,7 +57,7 @@ var MessageBox = React.createClass({
 			if (this.state.lastAccess.recipient >= lastMessage.timestamp) {
 				var date = Utils.getShortDate(lastMessage.timestamp);
 				messages.push(
-					<li className="message-box__item message-box__item--read">
+					<li key="read" className="message-box__item message-box__item--read">
 						<div className="message-box__item__contents">
 							Read { date }
 						</div>

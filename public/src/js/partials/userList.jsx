@@ -101,7 +101,7 @@ var UserList = React.createClass({
 			});
 
 			return (
-				<li className={ itemClasses }>
+				<li className={ itemClasses } key={ message.user.id }>
 					<div className="user-list__item__picture">
 						<img src={ message.user.profilePicture } />
 					</div>
