@@ -1,6 +1,7 @@
 var ReplyBox = require('../components/replyBox');
 
 var MessagesStore = require('../stores/messages');
+var MessagesActions = require('../actions/messages');
 var UserStore = require('../stores/user');
 
 var Utils = require('../utils');
