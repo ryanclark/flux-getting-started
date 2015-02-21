@@ -3,26 +3,44 @@ var utils = require('../utils');
 var MessagesStore = require('../stores/messages');
 var UserStore = require('../stores/user');
 
+var MessagesActions = require('../actions/messages');
+
+function getStateFromStore() {
+	var allMessages = MessagesStore.getAllChats();
+
+	var messageList = [];
+	for (var id in allMessages) {
+		var item = allMessages[id];
+
+		var messagesLength = item.messages.length;
+		messageList.push({
+			lastMessage: item.messages[messagesLength -1],
+			lastAccess: item.lastAccess,
+			user: item.user
+		})
+	}
+
+	return {
+		openChatID: MessagesStore.getOpenChatUserID(),
+		messageList: messageList
+	};
+}
+
 var UserList = React.createClass({
 	getInitialState: function () {
-		var allMessages = MessagesStore.getAllChats();
-
-		var messageList = [];
-		for (var id in allMessages) {
-			var item = allMessages[id];
-
-			var messagesLength = item.messages.length;
-			messageList.push({
-				lastMessage: item.messages[messagesLength -1],
-				lastAccess: item.lastAccess,
-				user: item.user
-			})
-		}
-
-		return {
-			openChatID: MessagesStore.getOpenChatUserID(),
-			messageList: messageList
-		};
+		return getStateFromStore();
+	},
+	componentWillMount: function () {
+		MessagesStore.addChangeListener(this.onStoreChange);
+	},
+	componentWillUnmount: function () {
+		MessagesStore.removeChangeListener(this.onStoreChange);
+	},
+	onStoreChange: function () {
+		this.setState(getStateFromStore());
+	},
+	changeOpenChat: function (id) {
+		MessagesActions.changeOpenChat(id);
 	},
 	render: function () {
 		this.state.messageList.sort(function (a, b) {
@@ -55,8 +73,6 @@ var UserList = React.createClass({
 				isNewMessage = message.lastMessage.from !== UserStore.user.id;
 			}
 
-			console.log(this.state.openChatID, message.user.id);
-
 			var itemClasses = React.addons.classSet({
 				'user-list__item': true,
 				'clear': true,
@@ -64,11 +80,8 @@ var UserList = React.createClass({
 				'user-list__item--active': this.state.openChatID === message.user.id
 			});
 
-
-			console.log(itemClasses);
-
 			return (
-				<li className={ itemClasses } key={ message.user.id }>
+				<li onClick={ this.changeOpenChat.bind(this, message.user.id) } className={ itemClasses } key={ message.user.id }>
 					<div className="user-list__item__picture">
 						<img src={ message.user.profilePicture } />
 					</div>

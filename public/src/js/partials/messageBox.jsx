@@ -5,9 +5,22 @@ var UserStore = require('../stores/user');
 
 var Utils = require('../utils');
 
+function getStateFromStore() {
+	return MessagesStore.getChatByUserID(MessagesStore.getOpenChatUserID())
+}
+
 var MessageBox = React.createClass({
 	getInitialState: function () {
-		return MessagesStore.getChatByUserID(MessagesStore.getOpenChatUserID());
+		return getStateFromStore();
+	},
+	componentWillMount: function () {
+		MessagesStore.addChangeListener(this.onStoreChange);
+	},
+	componentWillUnmount: function () {
+		MessagesStore.removeChangeListener(this.onStoreChange);
+	},
+	onStoreChange: function () {
+		this.setState(getStateFromStore());
 	},
 	render: function () {
 		var messagesLength = this.state.messages.length;
