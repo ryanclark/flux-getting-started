@@ -70,7 +70,7 @@ var messages = {
 
 var openChatID = parseInt(Object.keys(messages)[0], 10);
 
-var messageStore = assign({}, EventEmitter.prototype, {
+var messagesStore = assign({}, EventEmitter.prototype, {
 	addChangeListener: function (callback) {
 		this.on('change', callback);
 	},
@@ -88,8 +88,8 @@ var messageStore = assign({}, EventEmitter.prototype, {
 	}
 });
 
-messageStore.dispatchToken = Dispatcher.register(function (payload) {
+messagesStore.dispatchToken = Dispatcher.register(function (payload) {
 
 });
 
-module.exports = messageStore;
+module.exports = messagesStore;
