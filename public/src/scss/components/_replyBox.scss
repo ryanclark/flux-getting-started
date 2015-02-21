@@ -1,0 +1,36 @@
+.reply-box {
+	background: rgba( 0, 0, 0, 0.05 );
+	border-top: 1px solid rgba( 0, 0, 0, 0.1 );
+	padding: 14px 15px;
+
+	&__input {
+		display: block;
+		width: 100%;
+		border-radius: 3px;
+		border: 1px solid rgba( 0, 0, 0, 0.1 );
+		padding: 10px 15px;
+		font-size: 14px;
+		color: rgba( 0, 0, 0, 0.7 );
+
+		&:focus + .reply-box__tip {
+			display: block;
+		}
+	}
+
+	&__tip {
+		display: none;
+		position: absolute;
+		top: 24px;
+		right: 27px;
+		opacity: 0.8;
+		color: rgba(0, 0, 0, 0.4);
+
+		&__button {
+			background: rgba(0, 0, 0, 0.03);
+			border: 1px solid rgba(0, 0, 0, 0.1);
+			border-radius: 2px;
+			padding: 2px 3px;
+			margin: 0 3px;
+		}
+	}
+}

@@ -1,0 +1,86 @@
+.user-list {
+	position: absolute;
+	top: 60px;
+	left: 0;
+	bottom: 0;
+	width: 300px;
+	background: rgba( 0, 0, 0, 0.03 );
+	border-right: 1px solid rgba( 0, 0, 0, 0.1 );
+
+	&__item {
+		padding: 14px 10px 14px 15px;
+		border-bottom: 1px solid rgba( 0, 0, 0, 0.1 );
+		cursor: pointer;
+
+		&--new {
+			background: #EEF1F6;
+			font-weight: 500;
+
+			.user-list__item__icon {
+				color: #1D9BCE;
+				margin-right: 3px;
+			}
+		}
+
+		&--active {
+			background: #93C26D;
+			color: #fff;
+			font-weight: 500;
+			position: relative;
+			border-top: 1px solid rgba( 0, 0, 0, 0.1 );
+			margin-top: -1px;
+
+			&:before {
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 40px 0 40px 20px;
+				border-color: transparent transparent transparent #93C26D;
+				position: absolute;
+				display: block;
+				right: -20px;
+				top: 0;
+				content: " ";
+			}
+		}
+
+		&__picture {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			overflow: hidden;
+			float: left;
+			img {
+				width: inherit;
+			}
+		}
+
+		&__name {
+			margin: 3px 0 0 0;
+			font-size: 16px;
+			font-weight: inherit;
+		}
+
+		&__message {
+			width: 200px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			float: left;
+			display: block;
+		}
+
+		&__timestamp {
+			font-size: 11px;
+			font-weight: inherit;
+			float: right;
+			margin-top: 5px;
+		}
+
+		&__details {
+			width: 220px;
+			float: left;
+			padding-left: 15px;
+		}
+	}
+}
