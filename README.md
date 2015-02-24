@@ -3,6 +3,13 @@ Getting started with Flux
 
 ## Getting started
 
+In order to install, you need a few things installed system wide in addition to ```node.js``` and ```npm```:
+
+```
+npm install -g bower gulp
+gem install sass
+```
+
 To install, run
 
 ```
