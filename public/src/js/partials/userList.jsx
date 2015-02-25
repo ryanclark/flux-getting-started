@@ -97,7 +97,7 @@ var UserList = React.createClass({
 				'user-list__item': true,
 				'clear': true,
 				'user-list__item--new': isNewMessage,
-				'user-list__item--active': this.state.openChatID === index
+				'user-list__item--active': this.state.openChatID === message.user.id
 			});
 
 			return (
