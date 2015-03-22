@@ -14,10 +14,10 @@ var MessageBox = React.createClass({
 		return getStateFromStore();
 	},
 	componentWillMount: function () {
-		MessagesStore.addChangeListener(this.onStoreChange);
+		MessagesStore.addChangeListener.bind(this, this.onStoreChange);
 	},
 	componentWillUnmount: function () {
-		MessagesStore.removeChangeListener(this.onStoreChange);
+		MessagesStore.removeChangeListener.bind(this, this.onStoreChange);
 	},
 	onStoreChange: function () {
 		this.setState(getStateFromStore());
