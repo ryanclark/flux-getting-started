@@ -12,7 +12,6 @@ var es6ify      = require('es6ify');
 var fs          = require('fs');
 var gutil       = require('gulp-util');
 var exec        = require('child_process').exec;
-var fs          = require('fs');
 var flowToJshint = require('flow-to-jshint');
 var stylish = require('jshint-stylish');
 var reporter = require(stylish).reporter;
